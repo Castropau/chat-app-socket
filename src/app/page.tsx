@@ -9,7 +9,7 @@ export default function Home() {
   const [nickname, setNickname] = useState("");
   const [joined, setJoined] = useState(false); // Track if user has joined
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
+// test
   useEffect(() => {
     if (!joined) return; // Only listen after joining
     const socket = getSocket();
