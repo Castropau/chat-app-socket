@@ -12,6 +12,7 @@ app.prepare().then(() => {
     path: "/api/socket",
     cors: {
       origin: "*",
+      methods: ["GET", "POST"]
     }
   });
 
