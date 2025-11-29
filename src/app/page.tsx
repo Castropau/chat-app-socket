@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { getSocket } from "./lib/socket-client";
-// import { getSocket } from "@/lib/socket-client";
 
 export default function Home() {
   const [messages, setMessages] = useState<string[]>([]);
@@ -27,6 +26,12 @@ export default function Home() {
     setText("");
   }
 
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  }
+
   return (
     <main className="p-6">
       <h1 className="text-2xl font-semibold mb-4">Next.js 15 + Socket.IO Chat</h1>
@@ -42,6 +47,7 @@ export default function Home() {
           className="border px-3 py-2 flex-1"
           value={text}
           onChange={(e) => setText(e.target.value)}
+          onKeyDown={handleKeyDown} // <-- Added
           placeholder="Type message"
         />
         <button
