@@ -11,7 +11,8 @@ app.prepare().then(() => {
   const io = new Server(httpServer, {
     path: "/api/socket",
     cors: {
-      origin: "*"
+      origin: "*",
+      methods: ["GET", "POST"]
     }
   });
 
